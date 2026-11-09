@@ -92,6 +92,12 @@
   font-size: 30px;
 }
 
+.coreNote {
+  fill: var(--paper);
+  font-family: var(--font-hand), sans-serif;
+  font-size: 25px;
+}
+
 .coreCount {
   fill: var(--yellow);
   font-family: var(--font-mega), sans-serif;

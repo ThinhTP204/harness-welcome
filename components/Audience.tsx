@@ -20,7 +20,7 @@ export default function Audience() {
             Dành cho người muốn làm chủ AI, không chỉ dùng AI.
           </h2>
           <p className={styles.lede}>
-            Khóa học chưa phù hợp nếu bạn chỉ tìm vài mẹo prompt. Bạn sẽ làm dự án thật, nộp sản phẩm thật và tự bảo vệ
+            Khóa học chưa phù hợp nếu bạn chỉ tìm vài mẹo prompt. Bạn sẽ làm dự án thực hành, nộp sản phẩm chạy được và tự bảo vệ
             quyết định của mình.
           </p>
           <dl className={styles.facts}>

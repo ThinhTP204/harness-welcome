@@ -34,7 +34,7 @@ export const CODING_STAGE = 3;
 
 export const GOALS = [
   "Hiểu AI làm được gì và không làm được gì trong phát triển phần mềm",
-  "Dùng AI Coding Assistant và Agent cho công việc kỹ thuật thật",
+  "Dùng AI Coding Assistant và Agent cho công việc kỹ thuật",
   "Đánh giá, kiểm chứng và cải thiện kết quả do AI tạo ra",
   "Hoàn thành một sản phẩm nhỏ theo đúng quy trình",
 ] as const;
@@ -42,9 +42,9 @@ export const GOALS = [
 export const CHAPTERS = [
   {
     tint: "coral",
-    title: "Nền tảng AI-Augmented SE",
+    title: "Nền tảng AI-\u2060SE",
     summary: "Vai trò và giới hạn của AI trong quy trình phần mềm.",
-    output: "Repository và AI usage log",
+    output: "Repository và log tương tác AI",
   },
   {
     tint: "yellow",
@@ -67,14 +67,14 @@ export const CHAPTERS = [
   {
     tint: "paper",
     title: "Kiểm thử, Debug & Code Review",
-    summary: "Không dừng ở chuyện test pass.",
+    summary: "Viết test bắt được lỗi, debug và review code.",
     output: "Test suite, bug report, review",
   },
   {
     tint: "yellow",
     title: "Tích hợp, Demo & Đánh giá",
     summary: "Hoàn thiện sản phẩm và bảo vệ quyết định của bạn.",
-    output: "Sản phẩm, demo, báo cáo dùng AI",
+    output: "Sản phẩm, demo, log tương tác AI",
   },
 ] as const;
 
@@ -95,7 +95,7 @@ export const STORY_STAGES = [
     name: "Workflow",
     icon: "workflow",
     short: "Sơ đồ luồng",
-    gate: "Truy vết đầu cuối",
+    gate: "Truy vết story đến test",
     leaves: "Sơ đồ luồng và bảng truy vết",
     help: "Phác luồng màn hình và các trạng thái của lượt đặt.",
     risk: "Bỏ sót nhánh lỗi, như hai người đặt cùng một giờ.",
@@ -105,7 +105,7 @@ export const STORY_STAGES = [
     name: "Design",
     icon: "cube",
     short: "ERD, API spec",
-    gate: "Ghi lại đánh đổi",
+    gate: "Ghi lý do thiết kế",
     leaves: "Thiết kế, ERD, API spec",
     help: "Đề xuất ERD, API contract và cách chia thành phần.",
     risk: "Chọn kiến trúc phức tạp hơn bài toán cần.",
@@ -134,9 +134,9 @@ export const STORY_STAGES = [
   {
     name: "Deployment",
     icon: "deploy",
-    short: "Demo, log AI",
+    short: "Log tương tác AI",
     gate: "Health check, runbook",
-    leaves: "Demo, log tương tác AI, bảo vệ cá nhân",
+    leaves: "Demo, log tương tác AI, bảo vệ quyết định cá nhân",
     help: "Hỗ trợ cấu hình CI/CD và đọc log khi có sự cố.",
     risk: "Để lộ secret hoặc cấu hình sai môi trường.",
     verify: "Kiểm tra health check, quét bảo mật, viết runbook.",
@@ -145,8 +145,8 @@ export const STORY_STAGES = [
 
 export const FIT_CHECKS = [
   "Mình học một chuyên ngành thuộc khối CNTT",
-  "Mình biết lập trình cơ bản và dùng được Git",
-  "Mình có laptop cá nhân để thực hành",
+  "Mình đã học lập trình, biết dùng Git càng tốt",
+  "Mình có máy tính cá nhân để thực hành",
   "Mình sắp xếp được để đi đủ các buổi",
 ] as const;
 
@@ -158,11 +158,11 @@ export const COURSE_FACTS = [
 
 /** Những gì diễn ra sau khi gửi form, theo quy trình vận hành đề xuất. */
 export const REGISTER_STEPS = [
-  { title: "Gửi form", detail: "Điền thông tin và tick cam kết tham gia." },
-  { title: "Ban tổ chức xét", detail: "Rà soát điều kiện đầu vào và chỉ tiêu." },
+  { title: "Gửi form", detail: "Điền thông tin và xác nhận cam kết tham gia." },
+  { title: "Xét đăng ký", detail: "Rà soát điều kiện đầu vào và chỉ tiêu." },
   { title: "Nhận xác nhận", detail: "Email gửi lịch chính thức, phòng học, hướng dẫn chuẩn bị." },
   { title: "Vào học", detail: "Làm lab, dự án nhóm và nhận phản hồi từng buổi." },
-  { title: "Demo Day", detail: "Trình diễn sản phẩm và bảo vệ cá nhân." },
+  { title: "Demo Day", detail: "Trình diễn sản phẩm và bảo vệ quyết định cá nhân." },
 ] as const;
 
 /** Liên kết cuối trang: menu chính cộng thêm FAQ. */
@@ -185,7 +185,7 @@ export const FAQ_ITEMS = [
       "Không chỉ vậy. AI tạo ra kết quả rất nhanh, nhưng người chịu trách nhiệm vẫn là bạn. Khóa học tập trung vào tư duy kỹ sư: biết kiểm chứng những gì AI tạo ra và bảo đảm chất lượng sản phẩm.",
   },
   {
-    question: "Bạn sẽ học theo cách nào?",
+    question: "Khóa học diễn ra thế nào?",
     answer:
       "Học trực tiếp, vừa được hướng dẫn vừa thực hành trên dự án, làm cá nhân và theo nhóm. Số buổi và thời lượng sẽ có trong chương trình chính thức.",
   },
@@ -196,7 +196,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: "Cần chuẩn bị gì trước khi học?",
-    answer: "Bạn cần có máy tính cá nhân để thực hành. Công cụ AI và hướng dẫn cài đặt sẽ được gửi sau khi đăng ký thành công.",
+    answer: "Bạn cần có máy tính cá nhân để thực hành. Danh sách công cụ và hướng dẫn cài đặt sẽ được gửi sau khi đăng ký thành công.",
   },
   {
     question: "Khi nào khóa học bắt đầu và học phí bao nhiêu?",
@@ -214,6 +214,6 @@ export const FAQ_ITEMS = [
 export const OUTCOMES = [
   { icon: "code", tint: "coral", lines: ["AI trong toàn bộ", "vòng đời SE"] },
   { icon: "group", tint: "yellow", lines: ["Thực hành và", "làm việc nhóm"] },
-  { icon: "shield", tint: "lavender", lines: ["Kiểm chứng và", "đảm bảo chất lượng"] },
-  { icon: "cube", tint: "teal", lines: ["Sản phẩm thực tế", "& Demo Day"] },
+  { icon: "shield", tint: "lavender", lines: ["Kiểm chứng và", "bảo đảm chất lượng"] },
+  { icon: "cube", tint: "teal", lines: ["Sản phẩm chạy được", "& Demo Day"] },
 ] as const;

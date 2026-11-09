@@ -35,7 +35,7 @@ export function validateRegistration(raw: Record<string, unknown>) {
   if (value.email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.email)) errors.email = "Nhập email đúng định dạng, ví dụ ten@truong.edu.vn.";
   if (value.major.length < 2 || value.major.length > 100) errors.major = "Nhập ngành bạn đang học.";
   if (!(BACKGROUNDS as readonly string[]).includes(value.background)) errors.background = "Chọn mức gần với bạn nhất.";
-  if (!value.commitment) errors.commitment = "Tick vào ô này để gửi đăng ký.";
+  if (!value.commitment) errors.commitment = "Đánh dấu vào ô này để gửi đăng ký.";
 
   return { value, errors };
 }

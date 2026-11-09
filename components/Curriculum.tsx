@@ -41,7 +41,7 @@ export default function Curriculum() {
       <div className={styles.inner}>
         <div className={styles.header}>
           <h2 id="curriculum-title" className={styles.title}>
-            <span>Sáu chặng,</span> <span>từ yêu cầu đến</span> <span>sản phẩm chạy được.</span>
+            <span>Sáu học phần,</span> <span>từ yêu cầu đến</span> <span>sản phẩm chạy được.</span>
           </h2>
         </div>
 
@@ -68,7 +68,7 @@ export default function Curriculum() {
           ))}
         </ol>
 
-        <p className={styles.note}>Chương trình dự kiến. Chặng nào cũng kết thúc bằng một thứ bạn làm ra được.</p>
+        <p className={styles.note}>Chương trình dự kiến. Mỗi học phần đều kết thúc bằng một sản phẩm cụ thể.</p>
       </div>
     </section>
   );

@@ -48,7 +48,7 @@ export default function Overview() {
             Viết code chỉ là một chặng.
           </h2>
           <p className={styles.lede}>
-            Khóa học không dừng ở prompt hay vibe coding. Bạn học cách đưa AI vào toàn bộ vòng đời phần mềm, và là
+            Khóa AI-&#8288;Augmented Software Engineering (AI-&#8288;SE) không dừng ở prompt hay vibe coding. Bạn học cách đưa AI vào toàn bộ vòng đời phần mềm, và là
             người chịu trách nhiệm cuối cùng cho kết quả.
           </p>
         </div>

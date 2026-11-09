@@ -32,7 +32,7 @@
   max-width: 13em;
   margin: 0;
   font-family: var(--font-mega), sans-serif;
-  font-size: clamp(44px, 11vw, 92px);
+  font-size: clamp(30px, 9.6vw, 92px);
   font-weight: 400;
   line-height: 1.12;
 }
@@ -135,7 +135,7 @@
    Tổng margin trên và dưới của mỗi dải luôn bằng 5 bậc nên các dải cao bằng nhau. */
 @media (min-width: 1200px) {
   .title {
-    font-size: clamp(60px, 5.2vw, 92px);
+    font-size: clamp(52px, 4.4vw, 78px);
   }
 
   .header {

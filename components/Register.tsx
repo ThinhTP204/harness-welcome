@@ -153,7 +153,7 @@ export default function Register() {
                 {(control) => <input {...control} type="text" autoComplete="off" maxLength={100} />}
               </Field>
               <div className={styles.wide}>
-                <Field name="background" label="Nền tảng hiện tại của bạn" error={errors.background}>
+                <Field name="background" label="Trình độ lập trình hiện tại" error={errors.background}>
                   {(control) => (
                     <select {...control} defaultValue="">
                       <option value="" disabled>

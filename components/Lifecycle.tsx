@@ -208,8 +208,8 @@ export default function Lifecycle() {
               <text className={styles.coreCount} x={CENTER} y={CENTER + 36} textAnchor="middle">
                 <tspan ref={(node) => void (parts.current.count = node)}>6/6</tspan>
               </text>
-              <text className={styles.coreSmall} x={CENTER} y={CENTER + 80} textAnchor="middle">
-                cổng đã qua
+              <text className={styles.coreNote} x={CENTER} y={CENTER + 78} textAnchor="middle">
+                chặng đã kiểm chứng
               </text>
 
               <g ref={(node) => void (parts.current.badge = node)}>
