@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="halftone_orange.svg">
+<defs><pattern id="dot" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="4" fill="#EF523F" opacity=".6"/></pattern><linearGradient id="fade"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="m"><rect width="600" height="220" fill="url(#fade)"/></mask></defs><rect width="600" height="220" fill="url(#dot)" mask="url(#m)"/>
+</svg>

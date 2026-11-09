@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 660" role="img" aria-label="chalkboard_editable.svg">
+<g transform="rotate(-8 300 320)"><rect x="38" y="40" width="530" height="540" fill="#0E424A" stroke="#F3E8D9" stroke-width="22"/><g fill="#F2F6E9" font-family="monospace" font-size="53"><text x="90" y="148">&gt; plan</text><text x="90" y="234">&gt; build</text><text x="90" y="320">&gt; test</text><text x="90" y="406">&gt; deploy ✓</text></g></g>
+</svg>

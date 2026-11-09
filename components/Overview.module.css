@@ -1,0 +1,161 @@
+.overview {
+  position: relative;
+  padding: clamp(56px, 6vw, 96px) var(--gutter) clamp(80px, 8vw, 128px);
+  scroll-margin-top: var(--header-h);
+  background: var(--paper) url("/hero/paper.webp") center / cover;
+}
+
+.overview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/hero/grain.webp") 0 0 / 500px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.intro {
+  display: grid;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-mega), sans-serif;
+  font-size: clamp(52px, 14vw, 128px);
+  font-weight: 400;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 54ch;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* Hai dòng chữ tay nằm chồng lên nhau và đổi chỗ khi cuộn. */
+.captions {
+  display: grid;
+  margin-top: 28px;
+  font-family: var(--font-hand), sans-serif;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.2;
+  color: var(--coral-deep);
+}
+
+.captions p {
+  grid-area: 1 / 1;
+}
+
+.captionShort {
+  opacity: 0;
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 84px;
+  padding: 12px 10px;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(23px, 2.1vw, 34px);
+  font-weight: 800;
+  line-height: 1.08;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.brush {
+  position: absolute;
+  z-index: -1;
+  inset: -2% -6%;
+  background: url("/hero/shapes/brush_lavender.svg") center / 100% 165%;
+}
+
+.goals {
+  display: grid;
+  gap: 14px;
+  margin-top: clamp(28px, 3vw, 44px);
+  padding-top: 20px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.goalsLabel {
+  font-family: var(--font-display), sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.goals ul {
+  display: grid;
+  gap: 12px;
+}
+
+.goals li {
+  font-weight: 500;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .stages {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .goals ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
+    align-items: end;
+    gap: 48px;
+  }
+
+  .goals {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .goals ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .goals li + li {
+    padding-left: 24px;
+    border-left: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  }
+}
+
+@media (min-width: 1200px) {
+  .stages {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .captions {
+    /* Canh chữ tay ngay trên chặng Lập trình (chặng thứ 4 trong 8). */
+    margin-left: 37.5%;
+  }
+}

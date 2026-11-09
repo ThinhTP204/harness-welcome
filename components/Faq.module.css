@@ -1,0 +1,161 @@
+.faq {
+  position: relative;
+  padding-block: clamp(64px, 7vw, 104px) clamp(40px, 3.5vw, 56px);
+  padding-inline: var(--gutter);
+  scroll-margin-top: var(--header-h);
+  background: var(--paper) url("/hero/paper.webp") center / cover;
+}
+
+.faq::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/hero/grain.webp") 0 0 / 500px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.heading {
+  display: flex;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+/* Tiêu đề một dòng trên giấy xé, chữ nằm giữa tờ giấy. */
+.title {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  padding: 0.6em 0.62em 0.62em;
+  color: var(--ink);
+  font-family: var(--font-mega), sans-serif;
+  font-size: clamp(56px, 15vw, 84px);
+  font-weight: 400;
+  line-height: 1.16;
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(-2deg);
+}
+
+.title span {
+  display: block;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url("/hero/shapes/torn_teal.svg") center / 100% 100%;
+  filter: drop-shadow(2px 3px 0 #fff);
+}
+
+/* Danh sách câu hỏi */
+.list {
+  border-top: 1.5px solid var(--ink);
+}
+
+.item {
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 26%, transparent);
+}
+
+.question {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 16px;
+  padding-block: 20px;
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-weight: 600;
+  line-height: 1.35;
+  list-style: none;
+  cursor: pointer;
+}
+
+.question::-webkit-details-marker {
+  display: none;
+}
+
+.box {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 4;
+  transition: stroke 0.15s ease;
+}
+
+.tick {
+  stroke: var(--coral-deep);
+  stroke-width: 6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.item[open] .tick {
+  stroke-dashoffset: 0;
+}
+
+.chevron {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.item[open]:not([data-closing]) .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  overflow: hidden;
+}
+
+.panel p {
+  max-width: 62ch;
+  padding: 0 34px 24px 44px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* Desktop: tiêu đề bên trái, cột trái ôm theo chiều rộng tiêu đề nên chữ không bị xuống dòng. */
+@media (min-width: 1024px) {
+  .inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(40px, 4.4vw, 72px);
+    max-width: 1440px;
+  }
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: clamp(68px, 6.6vw, 112px);
+  }
+
+  .question {
+    padding-block: 24px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .question:hover .box {
+    stroke: var(--coral-deep);
+  }
+}
