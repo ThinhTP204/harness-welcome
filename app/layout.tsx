@@ -81,7 +81,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: motionGate }} />
       </head>
-      <body>{children}</body>
+      {/* Tiện ích trình duyệt hay gắn thêm thuộc tính vào body trước khi React chạy. */}
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

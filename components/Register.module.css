@@ -255,6 +255,94 @@
   }
 }
 
+/* Các bước sau khi đăng ký */
+.after {
+  position: relative;
+  max-width: 1440px;
+  margin: clamp(40px, 4vw, 60px) auto 0;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.afterTitle {
+  margin: 0 0 20px;
+  font-family: var(--font-mega), sans-serif;
+  font-size: clamp(32px, 3.2vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.stepsWrap {
+  position: relative;
+}
+
+.stepLine {
+  position: absolute;
+  top: 24px;
+  bottom: 44px;
+  left: 22px;
+  width: 4px;
+  background: rgb(18 62 70 / 22%);
+}
+
+.stepLine i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--coral-deep);
+  transform-origin: center top;
+}
+
+.steps {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-content: start;
+  align-items: start;
+  gap: 14px;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 46% 54% 42% 58% / 56% 44% 58% 42%;
+  background: var(--ink);
+  color: var(--yellow);
+  font-family: var(--font-mega), sans-serif;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.steps li:last-child .mark {
+  background: var(--coral-deep);
+  color: var(--paper);
+}
+
+.stepTitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(23px, 1.9vw, 28px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.stepDetail {
+  margin-top: 3px;
+  font-size: clamp(16px, 1.2vw, 18px);
+  font-weight: 500;
+  line-height: 1.38;
+  text-wrap: pretty;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .actions button:not(:disabled):hover {
     transform: translateY(-2px);
@@ -266,6 +354,33 @@
   .form {
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .stepLine {
+    top: 22px;
+    right: 10%;
+    bottom: auto;
+    left: 10%;
+    width: auto;
+    height: 4px;
+  }
+
+  .stepLine i {
+    transform-origin: left center;
+  }
+
+  .steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 32px);
+  }
+
+  .steps li {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 10px;
+    text-align: center;
   }
 }
 

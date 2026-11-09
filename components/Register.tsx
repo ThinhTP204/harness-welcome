@@ -1,10 +1,15 @@
 "use client";
 
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
-import { COMMITMENTS } from "@/lib/content";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { COMMITMENTS, REGISTER_STEPS } from "@/lib/content";
 import { BACKGROUNDS, validateRegistration, type RegistrationErrors } from "@/lib/registration";
 import Tear from "./Tear";
 import styles from "./Register.module.css";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Status = "idle" | "sending" | "done";
 
@@ -31,12 +36,32 @@ function Field({ name, label, error, children }: FieldProps) {
 }
 
 export default function Register() {
+  const steps = useRef<HTMLDivElement>(null);
   const form = useRef<HTMLFormElement>(null);
   const confirmation = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<RegistrationErrors>({});
   const [failure, setFailure] = useState("");
   const [saved, setSaved] = useState({ name: "", email: "" });
+
+  // Đường nối chạy theo cuộn: ngang trên màn rộng, dọc trên điện thoại.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia(steps);
+      const animate = (axis: "scaleX" | "scaleY") => {
+        const timeline = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: { trigger: steps.current, start: "top 82%", end: "clamp(bottom 62%)", scrub: 0.4 },
+        });
+        timeline.fromTo("[data-step-fill]", { [axis]: 0 }, { [axis]: 1, duration: 1 }, 0);
+        timeline.fromTo("[data-step-mark]", { scale: 0.6 }, { scale: 1, duration: 0.2, stagger: 0.2 }, 0);
+      };
+      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 900px)", () => animate("scaleX"));
+      mm.add("(prefers-reduced-motion: no-preference) and (max-width: 899px)", () => animate("scaleY"));
+      return () => mm.revert();
+    },
+    { scope: steps },
+  );
 
   const showErrors = (next: RegistrationErrors) => {
     setErrors(next);
@@ -92,8 +117,7 @@ export default function Register() {
             <span>Đăng ký</span> <span>tham gia khóa học.</span>
           </h2>
           <p className={styles.lede}>
-            Khóa học dự kiến diễn ra trong tuần 12–13, học kỳ FA26. Ban tổ chức xét đăng ký rồi gửi lịch chính thức, phòng học và hướng
-            dẫn chuẩn bị qua email của bạn.
+            Khóa học dự kiến diễn ra trong tuần 12–13, học kỳ FA26. Lịch chính thức được gửi qua email sau khi xét đăng ký.
           </p>
 
           <p className={styles.promiseTitle}>Khi đăng ký, bạn cam kết:</p>
@@ -181,6 +205,28 @@ export default function Register() {
               ) : null}
             </form>
           )}
+        </div>
+      </div>
+
+      <div ref={steps} className={styles.after}>
+        <h3 className={styles.afterTitle}>Sau khi đăng ký</h3>
+        <div className={styles.stepsWrap}>
+          <div className={styles.stepLine} aria-hidden="true">
+            <i data-step-fill />
+          </div>
+          <ol className={styles.steps}>
+            {REGISTER_STEPS.map((step, index) => (
+              <li key={step.title}>
+                <span className={styles.mark} data-step-mark aria-hidden="true">
+                  {index + 1}
+                </span>
+                <div>
+                  <p className={styles.stepTitle}>{step.title}</p>
+                  <p className={styles.stepDetail}>{step.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

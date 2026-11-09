@@ -58,6 +58,10 @@ ul {
   list-style: none;
 }
 
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
+
 :focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 3px;

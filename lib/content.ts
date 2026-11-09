@@ -156,6 +156,15 @@ export const COURSE_FACTS = [
   { term: "Đăng ký", detail: "Xác nhận cam kết tham dự ngay trong form" },
 ] as const;
 
+/** Những gì diễn ra sau khi gửi form, theo quy trình vận hành đề xuất. */
+export const REGISTER_STEPS = [
+  { title: "Gửi form", detail: "Điền thông tin và tick cam kết tham gia." },
+  { title: "Ban tổ chức xét", detail: "Rà soát điều kiện đầu vào và chỉ tiêu." },
+  { title: "Nhận xác nhận", detail: "Email gửi lịch chính thức, phòng học, hướng dẫn chuẩn bị." },
+  { title: "Vào học", detail: "Làm lab, dự án nhóm và nhận phản hồi từng buổi." },
+  { title: "Demo Day", detail: "Trình diễn sản phẩm và bảo vệ cá nhân." },
+] as const;
+
 /** Liên kết cuối trang: menu chính cộng thêm FAQ. */
 export const FOOTER_LINKS = [...NAV_LINKS, { label: "Câu hỏi thường gặp", href: "#faq" }] as const;
 
