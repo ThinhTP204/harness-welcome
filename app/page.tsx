@@ -6,6 +6,7 @@ import HeroMotion from "@/components/HeroMotion";
 import Overview from "@/components/Overview";
 import Projects from "@/components/Projects";
 import SiteFooter from "@/components/SiteFooter";
+import Register from "@/components/Register";
 import SiteHeader from "@/components/SiteHeader";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Curriculum />
         <Projects />
         <Audience />
+        <Register />
         <Faq />
       </main>
       <SiteFooter />

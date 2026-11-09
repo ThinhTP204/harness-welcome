@@ -32,10 +32,38 @@ const hand = Patrick_Hand({
   preload: false,
 });
 
+const SITE_TITLE = "AI-SE FA26 | Xây phần mềm cùng AI, làm chủ chất lượng";
+const SITE_DESCRIPTION =
+  "Khóa học thực chiến dành cho sinh viên IT, giúp bạn đưa AI vào toàn bộ quy trình phát triển phần mềm với tư duy kỹ sư và trách nhiệm về chất lượng.";
+const SHARE_IMAGE = {
+  url: "/hero/seo/AI_SE_FA26_OG_1200x630.jpg",
+  width: 1200,
+  height: 630,
+  type: "image/jpeg",
+  alt: "AI-SE FA26: Xây phần mềm cùng AI, làm chủ chất lượng",
+};
+
 export const metadata: Metadata = {
-  title: "AI-SE FA26 | Xây phần mềm cùng AI, làm chủ chất lượng",
-  description:
-    "Khóa học thực chiến dành cho sinh viên IT, giúp bạn đưa AI vào toàn bộ quy trình phát triển phần mềm với tư duy kỹ sư và trách nhiệm về chất lượng.",
+  // Các nền tảng chỉ đọc được ảnh theo địa chỉ đầy đủ: đặt NEXT_PUBLIC_SITE_URL bằng tên miền thật khi triển khai.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001"),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: "/",
+    siteName: "AI-SE FA26",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SHARE_IMAGE],
+  },
 };
 
 // Ẩn các phần tử sẽ animate trước lần paint đầu, tránh nháy nội dung.

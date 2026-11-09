@@ -1,8 +1,16 @@
 /**
- * Đặt URL form thật vào đây khi đã được xác nhận.
- * Khi còn null, nút trên header hiển thị trạng thái "Sắp mở đăng ký" và không phải là link.
+ * Nơi các nút "Đăng ký" dẫn tới: section form ngay trên trang.
+ * Đặt về null để đóng đăng ký, các nút sẽ quay lại trạng thái "Sắp mở đăng ký".
  */
-export const REGISTRATION_URL: string | null = null;
+export const REGISTRATION_URL: string | null = "#register";
+
+export const COMMITMENTS = [
+  "Sắp xếp để tham gia đầy đủ các buổi theo lịch được công bố",
+  "Đúng giờ và thực hiện nghiêm túc các hoạt động học tập, thực hành",
+  "Tự chuẩn bị máy tính và công cụ cần thiết",
+  "Hoàn thành bài tập, sản phẩm và hoạt động đánh giá",
+  "Báo kịp thời cho ban tổ chức nếu có việc bất khả kháng",
+] as const;
 
 export const NAV_LINKS = [
   { label: "Tổng quan", href: "#overview" },
@@ -75,51 +83,64 @@ export const STORY_EXAMPLE = "Là sinh viên, tôi muốn đặt phòng lab theo
 export const STORY_STAGES = [
   {
     name: "User Story",
+    icon: "group",
+    short: "Đặc tả",
+    gate: "Given/When/Then",
+    leaves: "Đặc tả và tiêu chí chấp nhận",
     help: "Gợi ý tiêu chí chấp nhận và các trường hợp biên.",
     risk: "Tự thêm những yêu cầu không ai đưa ra.",
     verify: "Đối chiếu với đề bài, viết lại tiêu chí theo Given/When/Then.",
   },
   {
     name: "Workflow",
+    icon: "workflow",
+    short: "Sơ đồ luồng",
+    gate: "Truy vết đầu cuối",
+    leaves: "Sơ đồ luồng và bảng truy vết",
     help: "Phác luồng màn hình và các trạng thái của lượt đặt.",
     risk: "Bỏ sót nhánh lỗi, như hai người đặt cùng một giờ.",
     verify: "Truy vết từ story đến màn hình, API, dữ liệu và test.",
   },
   {
     name: "Design",
+    icon: "cube",
+    short: "ERD, API spec",
+    gate: "Ghi lại đánh đổi",
+    leaves: "Thiết kế, ERD, API spec",
     help: "Đề xuất ERD, API contract và cách chia thành phần.",
     risk: "Chọn kiến trúc phức tạp hơn bài toán cần.",
     verify: "Ghi lại quyết định thiết kế và giải thích được đánh đổi.",
   },
   {
     name: "Implementation",
+    icon: "code",
+    short: "Repository, PR",
+    gate: "Đọc từng diff",
+    leaves: "Repository, pull requests",
     help: "Viết code theo kế hoạch đã được duyệt.",
     risk: "Sửa ngoài phạm vi hoặc gọi thư viện không tồn tại.",
     verify: "Đọc từng diff, chia nhỏ pull request, chạy lại trên máy.",
   },
   {
     name: "Testing",
+    icon: "shield",
+    short: "Tests, bug report",
+    gate: "Thêm phản ví dụ",
+    leaves: "Tests, bug report",
     help: "Sinh test và gợi ý dữ liệu kiểm thử.",
     risk: "Test chỉ lặp lại đúng code vừa viết, pass mà không bắt được lỗi.",
     verify: "Thêm phản ví dụ, cố ý làm sai code để xem test có báo không.",
   },
   {
     name: "Deployment",
+    icon: "deploy",
+    short: "Demo, log AI",
+    gate: "Health check, runbook",
+    leaves: "Demo, log tương tác AI, bảo vệ cá nhân",
     help: "Hỗ trợ cấu hình CI/CD và đọc log khi có sự cố.",
     risk: "Để lộ secret hoặc cấu hình sai môi trường.",
     verify: "Kiểm tra health check, quét bảo mật, viết runbook.",
   },
-] as const;
-
-export const EVIDENCE = [
-  "Đặc tả",
-  "Thiết kế",
-  "Repository",
-  "Tests",
-  "Pull requests",
-  "Log tương tác AI",
-  "Demo",
-  "Bảo vệ cá nhân",
 ] as const;
 
 export const FIT_CHECKS = [
@@ -171,12 +192,12 @@ export const FAQ_ITEMS = [
   {
     question: "Khi nào khóa học bắt đầu và học phí bao nhiêu?",
     answer:
-      "Khóa học dự kiến diễn ra trong tuần 12–13 của học kỳ FA26. Ngày, giờ, phòng học và học phí sẽ được công bố trước khi mở đăng ký.",
+      "Khóa học dự kiến diễn ra trong tuần 12–13 của học kỳ FA26. Ngày, giờ, phòng học và học phí sẽ được ban tổ chức thông báo chính thức.",
   },
   {
     question: "Đăng ký bằng cách nào?",
     answer: REGISTRATION_URL
-      ? "Bấm nút Đăng ký ở đầu hoặc cuối trang. Trong form, bạn xác nhận đã kiểm tra lịch và cam kết tham dự đầy đủ."
+      ? "Bấm nút Đăng ký ở đầu hoặc cuối trang rồi điền form. Trong form, bạn xác nhận cam kết tham dự đầy đủ."
       : "Form đăng ký chưa mở. Khi mở, nút ở đầu và cuối trang sẽ chuyển thành Đăng ký, và bạn sẽ xác nhận cam kết tham dự ngay trong form.",
   },
 ] as const;
