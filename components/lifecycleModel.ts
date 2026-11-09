@@ -26,8 +26,8 @@ export const CENTER = SIZE / 2;
 
 export const RINGS = {
   outer: { out: 408, in: 296, text: 318, font: 28 },
-  middle: { out: 286, in: 214, text: 250, font: 18 },
-  inner: { out: 204, in: 142, text: 173, font: 15.5 },
+  middle: { out: 286, in: 214, text: 250, font: 23 },
+  inner: { out: 204, in: 142, text: 173, font: 20 },
 };
 
 /** Góc giữa của chặng: chặng đầu ở đỉnh, đi theo chiều kim đồng hồ. */

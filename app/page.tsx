@@ -8,6 +8,7 @@ import Overview from "@/components/Overview";
 import Projects from "@/components/Projects";
 import SiteFooter from "@/components/SiteFooter";
 import Register from "@/components/Register";
+import ScrollReveals from "@/components/ScrollReveals";
 import SiteHeader from "@/components/SiteHeader";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <Faq />
       </main>
       <SiteFooter />
+      <ScrollReveals />
     </HeroMotion>
   );
 }

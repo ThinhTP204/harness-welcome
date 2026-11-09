@@ -5,16 +5,39 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { FAQ_ITEMS } from "@/lib/content";
-import styles from "./Faq.module.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const SECTION =
+  "relative pt-[clamp(64px,7vw,104px)] pb-[clamp(40px,3.5vw,56px)] px-(--gutter) scroll-mt-(--header-h) [background:var(--color-paper)_url('/hero/paper.webp')_center/cover] before:content-[''] before:absolute before:inset-0 before:[background:url('/hero/grain.webp')_0_0/500px] before:opacity-50 before:pointer-events-none";
+
+// Desktop: tiêu đề nhỏ bên trái, danh sách câu hỏi là nội dung chính.
+const INNER =
+  "relative max-w-[880px] mx-auto lg:grid lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:items-start lg:gap-[clamp(40px,4.4vw,72px)] lg:max-w-[1440px]";
+
+const TITLE = "text-ink font-mega text-[clamp(36px,10vw,48px)] font-normal leading-[1.12] lg:text-[clamp(40px,3.8vw,58px)]";
+
+const ITEM = "border-b border-b-[color-mix(in_srgb,var(--color-ink)_26%,transparent)]";
+
+const QUESTION =
+  "group grid grid-cols-[auto_minmax(0,1fr)_auto] [align-items:start] gap-4 py-5 text-[clamp(18px,1.5vw,21px)] font-semibold leading-[1.35] [list-style:none] cursor-pointer lg:py-6 [&::-webkit-details-marker]:hidden";
+
+const BOX =
+  "flex-none w-7 h-7 overflow-visible fill-none stroke-ink stroke-4 [transition:stroke_0.15s_ease] group-hover:stroke-coral-deep";
+
+const TICK = "stroke-coral-deep stroke-6 [stroke-dasharray:1] [stroke-dashoffset:1] in-open:[stroke-dashoffset:0]";
+
+const CHEVRON =
+  "w-[18px] h-[18px] mt-[5px] fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round] [transition:transform_0.2s_ease] [details[open]:not([data-closing])_&]:[transform:rotate(180deg)]";
+
+const ANSWER = "max-w-[62ch] pr-[34px] pb-6 pl-[44px] text-[16px] leading-[1.6] text-pretty";
 
 /** Ô vuông vẽ tay lấy từ tờ checklist ở hero. */
 function CheckBox() {
   return (
-    <svg className={styles.box} viewBox="-4 -34 52 52" aria-hidden="true">
+    <svg className={BOX} viewBox="-4 -34 52 52" aria-hidden="true">
       <rect x="0" y="-28" width="40" height="40" rx="2" />
-      <path className={styles.tick} d="M7 -9 L18 2 L40 -28" pathLength={1} data-tick />
+      <path className={TICK} d="M7 -9 L18 2 L40 -28" pathLength={1} data-tick />
     </svg>
   );
 }
@@ -67,26 +90,26 @@ export default function Faq() {
   });
 
   return (
-    <section ref={root} id="faq" className={styles.faq} aria-labelledby="faq-title">
-      <div className={styles.inner}>
-        <div className={styles.heading}>
-          <h2 id="faq-title" className={styles.title}>
-            <span>Câu hỏi</span> <span>thường gặp</span>
+    <section ref={root} id="faq" className={SECTION} aria-labelledby="faq-title">
+      <div className={INNER}>
+        <div className="mb-[clamp(20px,3vw,32px)] lg:mb-0 lg:sticky lg:top-[calc(var(--header-h)+32px)]">
+          <h2 id="faq-title" className={TITLE} data-reveal-title>
+            <span className="block">Câu hỏi</span> <span className="block">thường gặp</span>
           </h2>
         </div>
 
-        <div className={styles.list}>
+        <div className="border-t-[1.5px] border-t-ink" data-reveal-group>
           {FAQ_ITEMS.map((item, index) => (
-            <details key={item.question} className={styles.item} open={index === 0}>
-              <summary className={styles.question} onClick={toggle}>
+            <details key={item.question} className={ITEM} open={index === 0} data-reveal-item>
+              <summary className={QUESTION} onClick={toggle}>
                 <CheckBox />
                 <span>{item.question}</span>
-                <svg className={styles.chevron} viewBox="0 0 16 16" aria-hidden="true">
+                <svg className={CHEVRON} viewBox="0 0 16 16" aria-hidden="true">
                   <path d="M3 6l5 5 5-5" />
                 </svg>
               </summary>
-              <div className={styles.panel} data-panel>
-                <p>{item.answer}</p>
+              <div className="overflow-hidden" data-panel>
+                <p className={ANSWER}>{item.answer}</p>
               </div>
             </details>
           ))}

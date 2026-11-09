@@ -5,21 +5,21 @@ import "./globals.css";
 const mega = Anton({
   weight: "400",
   subsets: ["latin", "vietnamese"],
-  variable: "--font-mega",
+  variable: "--next-font-mega",
   display: "swap",
 });
 
 const display = Barlow_Semi_Condensed({
   weight: "800",
   subsets: ["latin", "vietnamese"],
-  variable: "--font-display",
+  variable: "--next-font-display",
   display: "swap",
 });
 
 const body = Be_Vietnam_Pro({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin", "vietnamese"],
-  variable: "--font-body",
+  variable: "--next-font-body",
   display: "swap",
 });
 
@@ -27,7 +27,7 @@ const body = Be_Vietnam_Pro({
 const hand = Patrick_Hand({
   weight: "400",
   subsets: ["latin", "vietnamese"],
-  variable: "--font-hand",
+  variable: "--next-font-hand",
   display: "swap",
   preload: false,
 });

@@ -1,80 +1,74 @@
-:root {
-  --paper: #fff9f1;
-  --ink: #123e46;
-  --coral: #f34437;
-  /* Coral đậm hơn cho nền nút: chữ giấy trên #F34437 chỉ đạt 3.5:1, trên màu này đạt 4.8:1. */
-  --coral-deep: #d42c20;
-  --yellow: #f8bf38;
-  --teal: #24a9b4;
-  --lavender: #ddaaef;
-  --orange: #f68d2e;
+@import "tailwindcss";
 
+@theme static {
+  --color-paper: #fff9f1;
+  --color-ink: #123e46;
+  --color-coral: #f34437;
+  /* Coral đậm hơn cho nền nút: chữ giấy trên #F34437 chỉ đạt 3.5:1, trên màu này đạt 4.8:1. */
+  --color-coral-deep: #d42c20;
+  --color-yellow: #f8bf38;
+  --color-teal: #24a9b4;
+  --color-lavender: #ddaaef;
+  --color-orange: #f68d2e;
+
+  --font-mega: var(--next-font-mega), sans-serif;
+  --font-display: var(--next-font-display), sans-serif;
+  --font-body: var(--next-font-body), system-ui, sans-serif;
+  --font-hand: var(--next-font-hand), sans-serif;
+
+  --animate-draw-tick: draw-tick 0.35s ease-out both;
+
+  @keyframes draw-tick {
+    from {
+      stroke-dashoffset: 1;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+:root {
   --gutter: clamp(24px, 4vw, 72px);
   --header-h: 80px;
   /* 1 đơn vị trên khung tham chiếu 1440px. */
   --u: clamp(0.7px, calc(100vw / 1440), 1.2px);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-h1,
-p,
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-}
-
-[tabindex="-1"]:focus-visible {
-  outline: none;
-}
-
-:focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* Trạng thái chờ animate, GSAP gỡ class này ngay khi đã đặt trạng thái đầu. */
-.motion [data-anim] {
-  visibility: hidden;
-}
-
-@media (prefers-reduced-motion: reduce) {
+@layer base {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  [tabindex="-1"]:focus-visible {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Trạng thái chờ animate, GSAP gỡ class này ngay khi đã đặt trạng thái đầu. */
+  .motion [data-anim] {
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

@@ -65,7 +65,7 @@ export const CHAPTERS = [
     output: "Một luồng chạy từ UI đến DB",
   },
   {
-    tint: "paper",
+    tint: "teal",
     title: "Kiểm thử, Debug & Code Review",
     summary: "Viết test bắt được lỗi, debug và review code.",
     output: "Test suite, bug report, review",
@@ -95,7 +95,7 @@ export const STORY_STAGES = [
     name: "Workflow",
     icon: "workflow",
     short: "Sơ đồ luồng",
-    gate: "Truy vết story đến test",
+    gate: "Truy vết đến test",
     leaves: "Sơ đồ luồng và bảng truy vết",
     help: "Phác luồng màn hình và các trạng thái của lượt đặt.",
     risk: "Bỏ sót nhánh lỗi, như hai người đặt cùng một giờ.",
@@ -124,7 +124,7 @@ export const STORY_STAGES = [
   {
     name: "Testing",
     icon: "shield",
-    short: "Tests, bug report",
+    short: "Test, báo lỗi",
     gate: "Thêm phản ví dụ",
     leaves: "Tests, bug report",
     help: "Sinh test và gợi ý dữ liệu kiểm thử.",
@@ -134,8 +134,8 @@ export const STORY_STAGES = [
   {
     name: "Deployment",
     icon: "deploy",
-    short: "Log tương tác AI",
-    gate: "Health check, runbook",
+    short: "Log tương tác",
+    gate: "Health check",
     leaves: "Demo, log tương tác AI, bảo vệ quyết định cá nhân",
     help: "Hỗ trợ cấu hình CI/CD và đọc log khi có sự cố.",
     risk: "Để lộ secret hoặc cấu hình sai môi trường.",
